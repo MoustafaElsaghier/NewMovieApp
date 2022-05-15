@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieModel"
+            type="com.example.movieapplatest.data.models.MovieModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        tools:context=".ui.features.movies.fragments.MoviesDetailsFragment">
+
+        <ImageView
+            android:id="@+id/movieImage"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:scaleType="centerCrop"
+            app:imageUrl='@{movieModel.backdrop_path}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription"
+            tools:src="@tools:sample/avatars" />
+
+        <TextView
+            android:id="@+id/movieName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_micro"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:fontFamily="@font/codec_pro_bold_2"
+            android:text="@{movieModel.original_title}"
+            android:textSize="@dimen/textSizeHeadline5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/movieImage"
+            tools:text="Sonic the Hedgehog 2" />
+
+        <TextView
+            android:id="@+id/movieYear"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:fontFamily="@font/codec_pro_bold_2"
+            android:text="@{movieModel.release_date}"
+            android:textSize="@dimen/textSizeTitle"
+            app:layout_constraintStart_toStartOf="@+id/movieName"
+            app:layout_constraintTop_toBottomOf="@+id/movieName"
+            tools:text="1996" />
+
+        <TextView
+            android:id="@+id/movieDesc"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{movieModel.overview}"
+            android:textSize="@dimen/textSizeSubTitle"
+            app:layout_constraintStart_toStartOf="@+id/movieYear"
+            app:layout_constraintTop_toBottomOf="@+id/movieYear"
+            tools:text="TextView" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

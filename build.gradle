@@ -1,0 +1,45 @@
+buildscript {
+
+    ext.imagesUrl = "https://image.tmdb.org/t/p/w500"
+
+    ext.productionUrl = "https://api.themoviedb.org/3/"
+
+    Properties properties = new Properties()
+    def propertiesFile = project.rootProject.file('local.properties')
+    if (propertiesFile.exists()) {
+        properties.load(propertiesFile.newDataInputStream())
+    }
+
+    repositories {
+        google()
+        mavenCentral()
+        maven { url "https://plugins.gradle.org/m2/" }
+    }
+
+    dependencies {
+        // the update has a problem with play com.github.triplet.play plugin.
+        classpath 'com.android.tools.build:gradle:7.2.0'
+
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.6.21"
+        classpath 'com.google.gms:google-services:4.3.10'
+        classpath "androidx.navigation:navigation-safe-args-gradle-plugin:2.4.2"
+    }
+}
+
+allprojects {
+
+    repositories {
+        google()
+        jcenter()
+        mavenCentral()
+        maven { url "https://jitpack.io" }
+        maven { url "https://maven.google.com" }
+        maven { url "https://plugins.gradle.org/m2/" }
+
+    }
+
+}
+
+task clean(type: Delete) {
+    delete rootProject.buildDir
+}

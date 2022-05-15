@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tv_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:text="Something went wrong \nSomething went wrongwrongwrongwrongwrongwrongwrongwrongwrong \nSomething went wrong "
+        android:background="@drawable/shape_error_toast"
+        android:lineSpacingExtra="4dp"
+        android:drawablePadding="@dimen/padding_micro"
+        app:drawableStartCompat="@drawable/toast_error"
+        android:padding="@dimen/padding_micro"
+        android:fontFamily="@font/codec_pro_news"
+        android:textSize="@dimen/textSizeTitle"
+        android:textAlignment="viewStart"
+        style="@style/TextTheme"
+        android:textColor="#EB5757"
+        tools:title="Completed successfully" />
+</FrameLayout>

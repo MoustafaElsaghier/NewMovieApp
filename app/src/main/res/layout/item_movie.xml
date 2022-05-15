@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="movieModel"
+            type="com.example.movieapplatest.data.models.MovieModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/rootLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="@dimen/margin_nano"
+        android:background="@drawable/shape_product_bg"
+        android:orientation="vertical"
+        android:padding="@dimen/margin_micro">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="180dp"
+            android:layout_marginTop="@dimen/margin_micro"
+            android:scaleType="centerCrop"
+            android:transitionName="imageView"
+            app:imageUrl='@{movieModel.backdrop_path}'
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:id="@+id/nameTextView"
+            style="@style/TextTheme"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_nano"
+            android:ellipsize="end"
+            android:fontFamily="@font/codec_pro_bold_2"
+            android:includeFontPadding="false"
+            android:lineSpacingExtra="6dp"
+            android:paddingTop="@dimen/padding_micro"
+            android:paddingBottom="@dimen/padding_micro"
+            android:text="@{movieModel.original_title}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSizeSubTitle"
+            app:fontFamily="@font/codec_pro_news"
+            app:layout_constraintTop_toBottomOf="@+id/imageView"
+            tools:text="Sonic the Hedgehog 2" />
+
+        <TextView
+            android:id="@+id/yearTextView"
+            style="@style/TextTheme"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:fontFamily="@font/codec_pro_news"
+            android:includeFontPadding="false"
+            android:paddingTop="@dimen/padding_micro"
+            android:paddingBottom="@dimen/padding_micro"
+            android:text="@{movieModel.release_date}"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSizeSubTitle"
+            app:fontFamily="@font/codec_pro_news"
+            app:layout_constraintEnd_toEndOf="@+id/nameTextView"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/nameTextView"
+            tools:text="2022-03-30" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
